@@ -23,4 +23,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           entrypoint: /bin/bash
-          args: -c "git config --global --add safe.directory /github/workspace && cd /github/workspace && /app/flatpak-external-data-checker --update --never-fork com.yandex.Browser.yaml"
+          args: -c "git config --global --add safe.directory /github/workspace && cd /github/workspace && /app/flatpak-external-data-checker --update --never-fork ru.yandex.Browser.yaml"

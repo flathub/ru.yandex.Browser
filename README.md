@@ -1,6 +1,6 @@
 # Yandex Browser
 
-This is a Flathub source for Yandex Browser flatpak pacckage.
+This is a Flathub source for Yandex Browser flatpak package.
 
 To learn more about Yandex Browser, visit https://browser.yandex.ru/.
 
