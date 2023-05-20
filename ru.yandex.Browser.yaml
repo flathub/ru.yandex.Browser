@@ -16,9 +16,11 @@ finish-args:
   - --share=ipc
   - --share=network
   - --socket=cups
+  - --socket=x11
   - --socket=fallback-x11
   - --socket=pcsc # FIDO2
   - --socket=pulseaudio
+  - --system-talk-name=org.bluez
   - --system-talk-name=org.freedesktop.UPower
   - --talk-name=com.canonical.AppMenu.Registrar
   - --talk-name=org.freedesktop.FileManager1
@@ -29,11 +31,22 @@ finish-args:
   - --talk-name=org.gnome.SessionManager
   - --system-talk-name=org.freedesktop.Avahi
   - --own-name=org.mpris.MediaPlayer2.chromium.*
-  - --filesystem=xdg-download
+  - --persist=.pki
   - --filesystem=/run/.heim_org.h5l.kcm-socket
+  - --filesystem=host-etc
+  - --filesystem=xdg-run/pipewire-0
+  - --filesystem=xdg-download
   - --filesystem=home/.local/share/applications:create
   - --filesystem=home/.local/share/icons:create
-  - --persist=.pki
+  # For GNOME proxy resolution
+  - --filesystem=xdg-run/dconf
+  - --filesystem=~/.config/dconf:ro
+  - --talk-name=ca.desrt.dconf
+  - --env=DCONF_USER_CONFIG_DIR=.config/dconf
+  - --env=GIO_EXTRA_MODULES=/app/lib/gio/modules
+  - --env=GSETTINGS_BACKEND=dconf
+  # For KDE proxy resolution (KDE5 only)
+  - --filesystem=~/.config/kioslaverc
 
 modules:
   - name: dconf
@@ -89,6 +102,8 @@ modules:
       - install -D -t /app/etc cobalt.ini
       - install -D -t /app/share/metainfo ru.yandex.Browser.metainfo.xml
       - desktop-file-edit --set-icon=ru.yandex.Browser /app/share/applications/ru.yandex.Browser.desktop
+      - desktop-file-edit --set-key=StartupWMClass --set-value=yandex-browser /app/share/applications/ru.yandex.Browser.desktop
+      - desktop-file-edit --set-key=StartupNotify --set-value=true /app/share/applications/ru.yandex.Browser.desktop
       - sed -i 's/Exec=\/usr\/bin\/yandex-browser-stable/Exec=yandex-browser/g' /app/share/applications/ru.yandex.Browser.desktop
     sources:
       - type: file
