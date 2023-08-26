@@ -89,11 +89,12 @@ modules:
     build-commands:
       - mkdir -p /app/yandex_browser /app/tmp-install/data /app/tmp-codecs-install/data
       - bsdtar -xf yandex-browser.rpm -C /app/tmp-install
-      - tar -xf opera-codecs.tar.zst -C /app/tmp-codecs-install
+      - ar -x chromium-codecs-ffmpeg-extra.deb --output /app/tmp-codecs-install
+      - tar -xf /app/tmp-codecs-install/data.tar.xz -C /app/tmp-codecs-install/data
       - mv /app/tmp-install/opt/yandex/browser/* /app/yandex_browser
       - install -D /app/tmp-install/usr/share/applications/yandex-browser.desktop
         /app/share/applications/ru.yandex.Browser.desktop
-      - install -D -m755 /app/tmp-codecs-install/usr/lib/opera/lib_extra/libffmpeg.so
+      - install -D -m755 /app/tmp-codecs-install/data/usr/lib/chromium-browser/libffmpeg.so
         /app/yandex_browser
       - rm -rf /app/tmp-install /app/tmp-codecs-install yandex-browser.rpm chromium-codecs-ffmpeg-extra.deb
       - install -D ru.yandex.Browser.svg /app/share/icons/hicolor/scalable/apps/ru.yandex.Browser.svg
@@ -116,9 +117,9 @@ modules:
           root: https://repo.yandex.ru/yandex-browser/rpm/stable/x86_64
           is-main-source: true
       - type: file
-        url: https://archlinux.org/packages/extra/x86_64/opera-ffmpeg-codecs/download/
-        sha256: d4f9ede15ac2deee85033a72afce96c6e21b45c444f25588a80758bb4ee353a3
-        dest-filename: opera-codecs.tar.zst
+        url: https://launchpadlibrarian.net/637033261/chromium-codecs-ffmpeg-extra_108.0.5359.71-0ubuntu0.18.04.5_amd64.deb
+        sha256: 9cde2bbef1c5dff70621b1afb24676201ad824d6be9398796975db48782fab1e
+        dest-filename: chromium-codecs-ffmpeg-extra.deb
         only-arches: [x86_64]
       - type: file
         path: cobalt.ini
