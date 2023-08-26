@@ -17,6 +17,7 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="23.7.1.1215-1" date="2023-08-26"/>
     <release version="23.7.1.1215" date="2023-08-01"/>
     <release version="23.5.4.685" date="2023-07-05"/>
     <release version="23.5.1.800" date="2023-06-22"/>
@@ -27,7 +28,6 @@
     <release version="23.3.3.706" date="2023-04-27"/>
     <release version="23.3.1.912" date="2023-04-13"/>
     <release version="23.1.5.751" date="2023-03-16"/>
-    <release version="23.1.5.751-1" date="2023-03-26"/>
   </releases>
   <url type="homepage">https://browser.yandex.ru</url>
   <url type="bugtracker">https://browser.yandex.ru/feedback/</url>
