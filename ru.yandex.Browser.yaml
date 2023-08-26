@@ -117,8 +117,8 @@ modules:
           root: https://repo.yandex.ru/yandex-browser/rpm/stable/x86_64
           is-main-source: true
       - type: file
-        url: https://launchpadlibrarian.net/637033261/chromium-codecs-ffmpeg-extra_108.0.5359.71-0ubuntu0.18.04.5_amd64.deb
-        sha256: 9cde2bbef1c5dff70621b1afb24676201ad824d6be9398796975db48782fab1e
+        url: https://ppa.launchpadcontent.net/savoury1/chromium/ubuntu/pool/main/c/chromium-browser/chromium-codecs-ffmpeg-extra_116.0.5845.110-0ubuntu0.22.04.1sav0_amd64.deb"
+        sha256: 310cccc4676dc7107f842e96a8be9d8633b74ad0bb92ad044f27904462d0414c 
         dest-filename: chromium-codecs-ffmpeg-extra.deb
         only-arches: [x86_64]
       - type: file
