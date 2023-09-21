@@ -18,7 +18,6 @@ finish-args:
   - --socket=cups
   - --socket=x11
   - --socket=fallback-x11
-  - --socket=wayland
   - --socket=pcsc # FIDO2
   - --socket=pulseaudio
   - --system-talk-name=org.bluez
@@ -105,7 +104,7 @@ modules:
       - desktop-file-edit --set-icon=ru.yandex.Browser /app/share/applications/ru.yandex.Browser.desktop
       - desktop-file-edit --set-key=StartupWMClass --set-value=yandex-browser /app/share/applications/ru.yandex.Browser.desktop
       - desktop-file-edit --set-key=StartupNotify --set-value=true /app/share/applications/ru.yandex.Browser.desktop
-      - sed -i 's/Exec=\/usr\/bin\/yandex-browser-stable/Exec=yandex-browser --ozone-platform-hint=auto/g' /app/share/applications/ru.yandex.Browser.desktop
+      - sed -i 's/Exec=\/usr\/bin\/yandex-browser-stable/Exec=yandex-browser/g' /app/share/applications/ru.yandex.Browser.desktop
     sources:
       - type: file
         url: https://repo.yandex.ru/yandex-browser/rpm/stable/x86_64/yandex-browser-stable-23.7.5.717-1.x86_64.rpm
@@ -118,8 +117,8 @@ modules:
           root: https://repo.yandex.ru/yandex-browser/rpm/stable/x86_64
           is-main-source: true
       - type: file
-        url: https://ppa.launchpadcontent.net/savoury1/chromium/ubuntu/pool/main/c/chromium-browser/chromium-codecs-ffmpeg-extra_116.0.5845.179-0ubuntu0.22.04.1sav0_amd64.deb
-        sha256: 6ea00ff817c37832d7ed486a99355536dd40cddb8fb843cacd9116f0f0bbb2b2
+        url: https://ppa.launchpadcontent.net/savoury1/chromium/ubuntu/pool/main/c/chromium-browser/chromium-codecs-ffmpeg-extra_117.0.5938.62-0ubuntu0.22.04.1sav1_amd64.deb
+        sha256: 875d66fe91fdce917f9d60a7c5bc3cd3d2cd3a54bff441ca5164bdd6b195062b
         dest-filename: chromium-codecs-ffmpeg-extra.deb
         only-arches: [x86_64]
       - type: file
