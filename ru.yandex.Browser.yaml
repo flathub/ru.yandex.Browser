@@ -12,6 +12,7 @@ finish-args:
   - --env=GTK_PATH=/app/lib/gtkmodules
   - --env=FOUND_FFMPEG=1
   - --env=THE_BEST_FFMPEG_LIBRARY=/app/yandex_browser/libffmpeg.so
+  - --env=CHROME_VERSION_EXTRA=stable
   - --env=GNOME_DISABLE_CRASH_DIALOG=SET_BY_GOOGLE_CHROME
   - --share=ipc
   - --share=network
