@@ -12,6 +12,7 @@ finish-args:
   - --env=GTK_PATH=/app/lib/gtkmodules
   - --env=FOUND_FFMPEG=1
   - --env=THE_BEST_FFMPEG_LIBRARY=/app/yandex_browser/libffmpeg.so
+  - --env=CHROME_VERSION_EXTRA=stable
   - --env=GNOME_DISABLE_CRASH_DIALOG=SET_BY_GOOGLE_CHROME
   - --share=ipc
   - --share=network
@@ -116,8 +117,8 @@ modules:
           root: https://repo.yandex.ru/yandex-browser/rpm/stable/x86_64
           is-main-source: true
       - type: file
-        url: https://ppa.launchpadcontent.net/savoury1/chromium/ubuntu/pool/main/c/chromium-browser/chromium-codecs-ffmpeg-extra_117.0.5938.62-0ubuntu0.22.04.1sav1_amd64.deb
-        sha256: 875d66fe91fdce917f9d60a7c5bc3cd3d2cd3a54bff441ca5164bdd6b195062b
+        url: http://ppa.launchpadcontent.net/savoury1/chromium/ubuntu/pool/main/c/chromium-browser/chromium-codecs-ffmpeg-extra_122.0.6261.111-0ubuntu0.22.04.1sav0_amd64.deb
+        sha256: 54f9c229e1234897203320fd425d52d4eb5c5f0e7970206cae9fcdeebec54e61
         dest-filename: chromium-codecs-ffmpeg-extra.deb
         only-arches: [x86_64]
       - type: file
