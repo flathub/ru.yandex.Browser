@@ -18,6 +18,8 @@ finish-args:
   - --share=network
   - --socket=cups
   - --socket=x11
+  - --socket=fallback-x11
+  - --socket=wayland
   - --socket=pcsc # FIDO2
   - --socket=pulseaudio
   - --system-talk-name=org.bluez
@@ -117,8 +119,8 @@ modules:
           root: https://repo.yandex.ru/yandex-browser/rpm/stable/x86_64
           is-main-source: true
       - type: file
-        url: http://ppa.launchpadcontent.net/savoury1/chromium/ubuntu/pool/main/c/chromium-browser/chromium-codecs-ffmpeg-extra_122.0.6261.111-0ubuntu0.22.04.1sav0_amd64.deb
-        sha256: 54f9c229e1234897203320fd425d52d4eb5c5f0e7970206cae9fcdeebec54e61
+        url: http://ppa.launchpadcontent.net/savoury1/chromium/ubuntu/pool/main/c/chromium-browser/chromium-codecs-ffmpeg-extra_126.0.6478.126-0ubuntu0.22.04.1sav0_amd64.deb
+        sha256: b106908dc89b6f0c228bd2278949d883c98865a1987cbf75f79958bca36d01fa
         dest-filename: chromium-codecs-ffmpeg-extra.deb
         only-arches: [x86_64]
       - type: file
