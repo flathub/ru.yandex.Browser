@@ -25,7 +25,7 @@
   </branding>
   <releases>
     <release version="24.4.1.951-1" date="2024-07-04">
-      <description lang="en">
+      <description>
         <p>Wayland support removed once again due to instability.</p>
         <p xml:lang="ru">Поддержка Wayland отключена из-за нестабильной работы браузера.</p>
       </description>
