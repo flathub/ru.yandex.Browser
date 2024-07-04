@@ -4,11 +4,14 @@
   <launchable type="desktop-id">ru.yandex.Browser.desktop</launchable>
   <name>Yandex Browser</name>
   <developer_name>Yandex</developer_name>
-  <summary>The web browser from Yandex</summary>
+  <summary>Web browser from Yandex</summary>
+  <summary xml:lang="ru">Веб-браузер от компании Яндекс</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>LicenseRef-proprietary=https://yandex.ru/legal/browser_agreement</project_license>
   <description>
-    <p>Yandex Browser is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.</p>
+    <p>New Yandex Browser with AI search and Alisa voice assistant is a modern fast web browser with familiar user interface.</p>
+      <p xml:lang="ru">Новый Яндекс.Браузер с нейросилами и встроенной Алисой предлагает современный дизайн и высокое
+    быстродействие при работе с веб-сайтами.</p>
   </description>
   <content_rating type="oars-1.1"/>
   <screenshots>
@@ -16,7 +19,17 @@
       <image>http://download.yandex.ru/browser/installer/nix/yandex_browser.png</image>
     </screenshot>
   </screenshots>
+  <branding>
+    <color type="primary" scheme_preference="light">#faf5f2</color>
+    <color type="primary" scheme_preference="dark">#561b51</color>
+  </branding>
   <releases>
+    <release version="24.4.1.951-1" date="2024-07-04">
+      <description lang="en">
+        <p>Wayland support removed once again due to instability.</p>
+        <p xml:lang="ru">Поддержка Wayland отключена из-за нестабильной работы браузера.</p>
+      </description>
+    </release>
     <release version="24.4.1.951" date="2024-05-22"/>
     <release version="24.1.5.794" date="2024-04-16"/>
     <release version="24.1.1.940-1" date="2024-03-16"/>
