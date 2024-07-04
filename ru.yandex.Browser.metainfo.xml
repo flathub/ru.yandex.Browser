@@ -3,7 +3,11 @@
   <id>ru.yandex.Browser</id>
   <launchable type="desktop-id">ru.yandex.Browser.desktop</launchable>
   <name>Yandex Browser</name>
-  <developer_name>Yandex</developer_name>
+  <name xml:lang="ru">Яндекс.Браузер</name>
+  <developer id="ru.yandex">
+    <name>Yandex</name>
+    <name xml:lang="ru">Яндекс  </name>
+  </developer>
   <summary>Web browser from Yandex</summary>
   <summary xml:lang="ru">Веб-браузер от компании Яндекс</summary>
   <metadata_license>CC0-1.0</metadata_license>
