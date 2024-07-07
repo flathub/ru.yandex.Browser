@@ -28,6 +28,12 @@
     <color type="primary" scheme_preference="dark">#561b51</color>
   </branding>
   <releases>
+    <release version="24.6.1.852" date="2024-07-04">
+      <description>
+        <p>Updated browser version to 24.6.1.852.</p>
+        <p xml:lang="ru">Обновлён браузер до версии 24.6.1.852.</p>
+      </description>
+    </release>
     <release version="24.4.1.951-1" date="2024-07-04">
       <description>
         <p>Wayland support removed once again due to instability.</p>
