@@ -87,16 +87,15 @@ modules:
   - name: yandex-browser
     buildsystem: simple
     build-commands:
-      - mkdir -p /app/yandex_browser /app/tmp-install/data /app/tmp-codecs-install/data
+      - mkdir -p /app/yandex_browser /app/tmp-install /app/tmp-codecs
       - bsdtar -xf yandex-browser.rpm -C /app/tmp-install
-      - ar -x chromium-codecs-ffmpeg-extra.deb --output /app/tmp-codecs-install
-      - tar -xf /app/tmp-codecs-install/data.tar.xz -C /app/tmp-codecs-install/data
+      - bsdtar -xf ffmpeg-plugin-browser.rpm -C /app/tmp-codecs
       - mv /app/tmp-install/opt/yandex/browser/* /app/yandex_browser
       - install -D /app/tmp-install/usr/share/applications/yandex-browser.desktop
         /app/share/applications/ru.yandex.Browser.desktop
-      - install -D -m755 /app/tmp-codecs-install/data/usr/lib/chromium-browser/libffmpeg.so
+      - install -D -m755 /app/tmp-codecs/usr/lib64/ffmpeg-plugin-browser/libffmpeg.so
         /app/yandex_browser
-      - rm -rf /app/tmp-install /app/tmp-codecs-install yandex-browser.rpm chromium-codecs-ffmpeg-extra.deb
+      - rm -rf /app/tmp-install /app/tmp-codecs  yandex-browser.rpm ffmpeg-plugin-browser.rpm
       - install -D ru.yandex.Browser.svg /app/share/icons/hicolor/scalable/apps/ru.yandex.Browser.svg
       - install -D yandex-browser.sh /app/bin/yandex-browser
       - install -D -t /app/etc cobalt.ini
@@ -117,9 +116,9 @@ modules:
           root: https://repo.yandex.ru/yandex-browser/rpm/stable/x86_64
           is-main-source: true
       - type: file
-        url: http://ppa.launchpadcontent.net/savoury1/chromium/ubuntu/pool/main/c/chromium-browser/chromium-codecs-ffmpeg-extra_126.0.6478.126-0ubuntu0.22.04.1sav0_amd64.deb
-        sha256: b106908dc89b6f0c228bd2278949d883c98865a1987cbf75f79958bca36d01fa
-        dest-filename: chromium-codecs-ffmpeg-extra.deb
+        url: https://mirror.yandex.ru/altlinux/p10/branch/x86_64/RPMS.classic/ffmpeg-plugin-browser-120-alt3.x86_64.rpm
+        sha256: ec5ecd91b938818d722917382b4fa15a83a8f69718d5b892b70b0a4395551f8d
+        dest-filename: ffmpeg-plugin-browser.rpm
         only-arches: [x86_64]
       - type: file
         path: cobalt.ini
