@@ -116,8 +116,8 @@ modules:
           root: https://repo.yandex.ru/yandex-browser/rpm/stable/x86_64
           is-main-source: true
       - type: file
-        url: https://mirror.yandex.ru/altlinux/p10/branch/x86_64/RPMS.classic/ffmpeg-plugin-browser-120-alt3.x86_64.rpm
-        sha256: ec5ecd91b938818d722917382b4fa15a83a8f69718d5b892b70b0a4395551f8d
+        url: https://mirror.yandex.ru/altlinux/p10/branch/x86_64/RPMS.classic/ffmpeg-plugin-browser-122-alt1.x86_64.rpm
+        sha256: 225d48545c337f1cec59e2d9b5e810e52b8234a0267151b63c6985f878c79ef8
         dest-filename: ffmpeg-plugin-browser.rpm
         only-arches: [x86_64]
       - type: file
