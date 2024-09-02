@@ -47,6 +47,9 @@ finish-args:
   - --env=GSETTINGS_BACKEND=dconf
   # For KDE proxy resolution (KDE5 only)
   - --filesystem=~/.config/kioslaverc
+  # Enables PWAs
+  - --filesystem=~/.local/share/applications:create
+  - --filesystem=~/.local/share/icons:create
 
 modules:
   - name: dconf
@@ -89,13 +92,11 @@ modules:
     build-commands:
       - mkdir -p /app/yandex_browser /app/tmp-install /app/tmp-codecs
       - bsdtar -xf yandex-browser.rpm -C /app/tmp-install
-      - bsdtar -xf ffmpeg-plugin-browser.rpm -C /app/tmp-codecs
       - mv /app/tmp-install/opt/yandex/browser/* /app/yandex_browser
+      - unzip ffmpeg.zip libffmpeg.so -d /app/yandex_browser
       - install -D /app/tmp-install/usr/share/applications/yandex-browser.desktop
         /app/share/applications/ru.yandex.Browser.desktop
-      - install -D -m755 /app/tmp-codecs/usr/lib64/ffmpeg-plugin-browser/libffmpeg.so
-        /app/yandex_browser
-      - rm -rf /app/tmp-install /app/tmp-codecs  yandex-browser.rpm ffmpeg-plugin-browser.rpm
+      - rm -rf /app/tmp-install yandex-browser.rpm
       - install -D ru.yandex.Browser.svg /app/share/icons/hicolor/scalable/apps/ru.yandex.Browser.svg
       - install -D yandex-browser.sh /app/bin/yandex-browser
       - install -D -t /app/etc cobalt.ini
@@ -116,10 +117,14 @@ modules:
           root: https://repo.yandex.ru/yandex-browser/rpm/stable/x86_64
           is-main-source: true
       - type: file
-        url: https://mirror.yandex.ru/altlinux/p10/branch/x86_64/RPMS.classic/ffmpeg-plugin-browser-122-alt1.x86_64.rpm
-        sha256: 225d48545c337f1cec59e2d9b5e810e52b8234a0267151b63c6985f878c79ef8
-        dest-filename: ffmpeg-plugin-browser.rpm
-        only-arches: [x86_64]
+        url: https://github.com/Ld-Hagen/nwjs-ffmpeg-prebuilt/releases/download/nwjs-ffmpeg-0.90.0/0.90.0-linux-x64.zip
+        sha256: 328919528893e97697ba2e48f6c301fc95231d64c1a1bc171bcd0a0adfd6f160
+        dest-filename: ffmpeg.zip
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/Ld-Hagen/nwjs-ffmpeg-prebuilt/releases/latest
+          version-query: .tag_name | sub("^nwjs-ffmpeg-"; "")
+          url-query: .assets[] | select(.name==$version + "-linux-x64.zip") | .browser_download_url
       - type: file
         path: cobalt.ini
       - type: file
