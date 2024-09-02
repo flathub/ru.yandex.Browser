@@ -117,8 +117,8 @@ modules:
           root: https://repo.yandex.ru/yandex-browser/rpm/stable/x86_64
           is-main-source: true
       - type: file
-        url: https://github.com/Ld-Hagen/nwjs-ffmpeg-prebuilt/releases/download/nwjs-ffmpeg-0.90.0/0.90.0-linux-x64.zip
-        sha256: 328919528893e97697ba2e48f6c301fc95231d64c1a1bc171bcd0a0adfd6f160
+        url: https://github.com/Ld-Hagen/nwjs-ffmpeg-prebuilt/releases/download/nwjs-ffmpeg-0.91.0/0.91.0-linux-x64.zip
+        sha256: 49df854b0eb4fd53bd9a355286f71ec5f2a626705b3d5c6e80f1f5f38336fa39
         dest-filename: ffmpeg.zip
         x-checker-data:
           type: json
