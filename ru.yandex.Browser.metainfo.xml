@@ -28,6 +28,9 @@
     <color type="primary" scheme_preference="dark">#561b51</color>
   </branding>
   <releases>
+    <release version="24.7.6.1042" date="2024-10-17">
+      <description></description>
+    </release>
     <release version="24.7.3.1253-1" date="2024-09-28">
       <description>
         <p>Updated browser ffmpeg plugin to 0.92.0</p>
