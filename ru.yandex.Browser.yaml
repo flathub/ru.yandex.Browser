@@ -107,8 +107,8 @@ modules:
       - sed -i 's/Exec=\/usr\/bin\/yandex-browser-stable/Exec=yandex-browser/g' /app/share/applications/ru.yandex.Browser.desktop
     sources:
       - type: file
-        url: https://repo.yandex.ru/yandex-browser/rpm/stable/x86_64/yandex-browser-stable-24.12.1.712-1.x86_64.rpm
-        sha256: 1283fe0cd2e03f23d55404c7f71122fce0dd9c62f75b3ea5b3ed74fe7a2070bc
+        url: https://repo.yandex.ru/yandex-browser/rpm/stable/x86_64/yandex-browser-stable-24.12.4.1055-1.x86_64.rpm
+        sha256: 65e2bcc5a4d203034c3ec6df4ff259a5da4b9a1873f89cdb11a08f3cac90f6d7
         dest-filename: yandex-browser.rpm
         only-arches: [x86_64]
         x-checker-data:
