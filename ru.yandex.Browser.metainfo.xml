@@ -29,7 +29,10 @@
   </branding>
   <releases>
     <release version="25.2.1.939" date="2025-04-04">
-      <description></description>
+      <description>
+        <p>Updated browser version to 25.2.1.939.</p>
+        <p xml:lang="ru">Обновлён браузер до версии 25.2.1.939.</p>
+      </description>
     </release>
     <release version="24.12.4.1055" date="2025-02-03">
       <description>
