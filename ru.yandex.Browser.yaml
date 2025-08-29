@@ -107,8 +107,8 @@ modules:
       - sed -i 's/Exec=\/usr\/bin\/yandex-browser-stable/Exec=yandex-browser/g' /app/share/applications/ru.yandex.Browser.desktop
     sources:
       - type: file
-        url: https://repo.yandex.ru/yandex-browser/rpm/stable/x86_64/yandex-browser-stable-25.4.1.1016-1.x86_64.rpm
-        sha256: be758bf3bd0f9ba705da8b7a8dacd90915c2d9d2ddcfcd293fcea4a1cd56348b
+        url: https://repo.yandex.ru/yandex-browser/rpm/stable/x86_64/yandex-browser-stable-25.8.1.844-1.x86_64.rpm
+        sha256: 538a842c7dda3e3a38832a9c273f5a48b16f3616a74de4088474a3a4ac902580
         dest-filename: yandex-browser.rpm
         only-arches: [x86_64]
         x-checker-data:
@@ -117,8 +117,8 @@ modules:
           root: https://repo.yandex.ru/yandex-browser/rpm/stable/x86_64
           is-main-source: true
       - type: file
-        url: https://github.com/Ld-Hagen/nwjs-ffmpeg-prebuilt/releases/download/nwjs-ffmpeg-0.97.0/0.97.0-linux-x64.zip
-        sha256: b983b41ba4c7a6a0748c0dd12cf68891c65c64f1170608e97b6becd45c10bc4c
+        url: https://github.com/Ld-Hagen/nwjs-ffmpeg-prebuilt/releases/download/nwjs-ffmpeg-0.100.0/0.100.0-linux-x64.zip
+        sha256: 7d586f8f5aa5f4fd1411017d5b50fd405d444a3853e8b9a6deb07b36f5f5e75c
         dest-filename: ffmpeg.zip
         x-checker-data:
           type: json
