@@ -28,6 +28,12 @@
     <color type="primary" scheme_preference="dark">#561b51</color>
   </branding>
   <releases>
+    <release version="25.8.1.844" date="2025-08-29">
+      <description>
+        <p>Updated browser version to 25.8.1.844.</p>
+        <p xml:lang="ru">Обновлён браузер до версии 25.8.1.844.</p>
+      </description>
+    </release>
     <release version="25.4.1.1016" date="2025-05-21">
       <description>
         <p>Updated browser version to 25.4.1.1016.</p>
