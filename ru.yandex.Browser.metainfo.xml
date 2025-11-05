@@ -28,6 +28,9 @@
     <color type="primary" scheme_preference="dark">#561b51</color>
   </branding>
   <releases>
+    <release version="25.8.5.993" date="2025-11-05">
+      <description></description>
+    </release>
     <release version="25.8.5.854" date="2025-10-22">
       <description>
         <p>Updated browser version to 25.8.5.854.</p>
