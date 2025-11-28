@@ -93,3 +93,7 @@ modules:
           package-name: yandex-browser-stable
           root: https://repo.yandex.ru/yandex-browser/rpm/flatpak/x86_64/
           is-main-source: true
+      - type: file
+        path: ru.yandex.Browser.metainfo.xml
+      - type: file
+        path: ru.yandex.Browser.svg
