@@ -80,6 +80,7 @@ modules:
     buildsystem: simple
     build-commands:
       - bsdtar -xf yandex-browser.rpm -C /
+      - install -D -t /app/share/metainfo ru.yandex.Browser.metainfo.xml
     cleanup:
       - yandex-browser.rpm
     sources:
