@@ -81,6 +81,7 @@ modules:
     build-commands:
       - bsdtar -xf yandex-browser.rpm -C /
       - install -D -t /app/share/metainfo ru.yandex.Browser.metainfo.xml
+      - install -D ru.yandex.Browser.svg /app/share/icons/hicolor/scalable/apps/ru.yandex.Browser.svg
       - rm -f /app/share/appdata/ru.yandex.Browser.appdata.xml
     cleanup:
       - yandex-browser.rpm
