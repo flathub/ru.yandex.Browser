@@ -4,13 +4,14 @@ runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 base: org.chromium.Chromium.BaseApp
 base-version: '24.08'
-command: ru.yandex.Browser-stable
+command: yandex-browser
 separate-locales: false
 finish-args:
   - --require-version=1.8.2
   - --device=all
   - --env=GTK_PATH=/app/lib/gtkmodules
-  - --env=LD_LIBRARY_PATH=/app/ffmpeg/lib
+  - --env=FOUND_FFMPEG=1
+  - --env=THE_BEST_FFMPEG_LIBRARY=/app/yandex_browser/libffmpeg.so
   - --env=CHROME_VERSION_EXTRA=stable
   - --env=GNOME_DISABLE_CRASH_DIALOG=SET_BY_GOOGLE_CHROME
   - --share=ipc
@@ -76,27 +77,61 @@ modules:
       - type: patch
         path: dconf-override.patch
 
-  - name: ru.yandex.Browser-stable
+  - name: zypak
+    sources:
+      - type: git
+        url: https://github.com/refi64/zypak
+        tag: v2025.09
+        commit: 693a71c5ffa80ec9c9ce2ae03b1ccc493c698e53
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+)$
+
+  - name: yandex-browser
     buildsystem: simple
     build-commands:
-      - bsdtar -xf yandex-browser.rpm -C /
-      - install -D -t /app/share/metainfo ru.yandex.Browser.metainfo.xml
+      - mkdir -p /app/yandex_browser /app/tmp-install /app/tmp-codecs
+      - bsdtar -xf yandex-browser.rpm -C /app/tmp-install
+      - mv /app/tmp-install/opt/yandex/browser/* /app/yandex_browser
+      - unzip ffmpeg.zip libffmpeg.so -d /app/yandex_browser
+      - install -D /app/tmp-install/usr/share/applications/yandex-browser.desktop
+        /app/share/applications/ru.yandex.Browser.desktop
+      - rm -rf /app/tmp-install yandex-browser.rpm
       - install -D ru.yandex.Browser.svg /app/share/icons/hicolor/scalable/apps/ru.yandex.Browser.svg
-      - rm -f /app/share/appdata/ru.yandex.Browser.appdata.xml
-    cleanup:
-      - yandex-browser.rpm
+      - install -D yandex-browser.sh /app/bin/yandex-browser
+      - install -D -t /app/etc cobalt.ini
+      - install -D -t /app/share/metainfo ru.yandex.Browser.metainfo.xml
+      - desktop-file-edit --set-icon=ru.yandex.Browser /app/share/applications/ru.yandex.Browser.desktop
+      - desktop-file-edit --set-key=StartupWMClass --set-value=yandex-browser /app/share/applications/ru.yandex.Browser.desktop
+      - desktop-file-edit --set-key=StartupNotify --set-value=true /app/share/applications/ru.yandex.Browser.desktop
+      - sed -i 's/Exec=\/usr\/bin\/yandex-browser-stable/Exec=yandex-browser/g' /app/share/applications/ru.yandex.Browser.desktop
     sources:
       - type: file
-        url: https://repo.yandex.ru/yandex-browser/rpm/flatpak/x86_64/yandex-browser-stable-25.10.1.1172-1.x86_64.rpm
-        sha256: 389abc7eea6ae98a3e38ed08b19804d82434d2dd12511e0b07c622881c210d5e
+        url: https://repo.yandex.ru/yandex-browser/rpm/stable/x86_64/yandex-browser-stable-25.8.5.854-1.x86_64.rpm
+        sha256: 296c7d7ed1a52edaa83fc013dffdc44603e0c0be67489530e4d92a8c82e15902
         dest-filename: yandex-browser.rpm
         only-arches: [x86_64]
         x-checker-data:
           type: rpm-repo
           package-name: yandex-browser-stable
-          root: https://repo.yandex.ru/yandex-browser/rpm/flatpak/x86_64/
+          root: https://repo.yandex.ru/yandex-browser/rpm/stable/x86_64
           is-main-source: true
+      - type: file
+        url: https://github.com/Ld-Hagen/nwjs-ffmpeg-prebuilt/releases/download/nwjs-ffmpeg-0.102.1/0.102.1-linux-x64.zip
+        sha256: bc177450f645a2a12548af4a86455851ca5fecf47e3fcb8ceb5333a8eb94ebb6
+        dest-filename: ffmpeg.zip
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/Ld-Hagen/nwjs-ffmpeg-prebuilt/releases/latest
+          version-query: .tag_name | sub("^nwjs-ffmpeg-"; "")
+          url-query: .assets[] | select(.name==$version + "-linux-x64.zip") | .browser_download_url
+      - type: file
+        path: cobalt.ini
       - type: file
         path: ru.yandex.Browser.metainfo.xml
       - type: file
         path: ru.yandex.Browser.svg
+      - type: script
+        dest-filename: yandex-browser.sh
+        commands:
+          - exec cobalt "$@"
