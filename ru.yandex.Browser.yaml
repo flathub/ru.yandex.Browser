@@ -87,8 +87,8 @@ modules:
       - yandex-browser.rpm
     sources:
       - type: file
-        url: https://repo.yandex.ru/yandex-browser/rpm/flatpak/x86_64/yandex-browser-stable-25.10.1.1172-1.x86_64.rpm
-        sha256: 389abc7eea6ae98a3e38ed08b19804d82434d2dd12511e0b07c622881c210d5e
+        url: https://repo.yandex.ru/yandex-browser/rpm/flatpak/x86_64/yandex-browser-stable-25.8.5.1013-1.x86_64.rpm
+        sha256: f78f76ca50af61f22118d3832bfb33cd0082f757cd6ee016448ee3cfeab4ade8
         dest-filename: yandex-browser.rpm
         only-arches: [x86_64]
         x-checker-data:
