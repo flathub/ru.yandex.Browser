@@ -29,6 +29,9 @@
     <color type="primary" scheme_preference="dark">#561b51</color>
   </branding>
   <releases>
+    <release version="25.12.1.1297" date="2026-01-27">
+      <description></description>
+    </release>
     <release version="25.8.5.1013" date="2025-12-01">
       <description>
         <p>Updated browser version to 25.8.5.1013. Use version built for flatpak.</p>
