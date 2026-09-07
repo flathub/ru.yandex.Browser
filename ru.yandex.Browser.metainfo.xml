@@ -29,8 +29,11 @@
     <color type="primary" scheme_preference="dark">#561b51</color>
   </branding>
   <releases>
-    <release version="26.6.1.1085" date="2026-08-10">
+    <release version="26.8.1.1018" date="2026-09-07">
       <description></description>
+    </release>
+    <release version="26.6.1.1085" date="2026-08-10">
+      <description/>
     </release>
     <release version="26.4.1.1109" date="2026-06-17">
       <description/>
