@@ -66,8 +66,8 @@ modules:
       - '*.pc'
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/dconf/0.49/dconf-0.49.0.tar.xz
-        sha256: 16a47e49a58156dbb96578e1708325299e4c19eea9be128d5bd12fd0963d6c36
+        url: https://download.gnome.org/sources/dconf/51/dconf-51.0.tar.xz
+        sha256: e65c1b7867f836faad9f9ee04acf5c5a6cae2bbc784833fe093207e0cb590248
         x-checker-data:
           type: gnome
           name: dconf
@@ -87,8 +87,8 @@ modules:
       - yandex-browser.rpm
     sources:
       - type: file
-        url: https://repo.yandex.ru/yandex-browser/rpm/flatpak/x86_64/yandex-browser-stable-26.6.1.1085-1.x86_64.rpm
-        sha256: bc713ab560dda1662cf96a365bb517b73708f11289d1961d55f8d9aa272395e9
+        url: https://repo.yandex.ru/yandex-browser/rpm/flatpak/x86_64/yandex-browser-stable-26.8.1.1077-1.x86_64.rpm
+        sha256: adc0915cb541154583d95907e4266394a3e926b7e239cd309f69acf178ac350e
         dest-filename: yandex-browser.rpm
         only-arches: [x86_64]
         x-checker-data:
