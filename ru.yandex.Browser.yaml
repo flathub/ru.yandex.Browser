@@ -16,7 +16,8 @@ finish-args:
   - --share=ipc
   - --share=network
   - --socket=cups
-  - --socket=x11
+  - --socket=wayland
+  - --socket=fallback-x11
   - --socket=pcsc # FIDO2
   - --socket=pulseaudio
   - --system-talk-name=org.bluez
