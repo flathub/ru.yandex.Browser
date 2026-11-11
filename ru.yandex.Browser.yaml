@@ -10,6 +10,7 @@ finish-args:
   - --require-version=1.8.2
   - --device=all
   - --env=GTK_PATH=/app/lib/gtkmodules
+  - --env=XCURSOR_PATH=~/.icons:/app/share/icons:/usr/share/icons:/usr/share/pixmaps:/usr/share/runtime/share/icons:/run/host/user-share/icons:/run/host/share/icons
   - --env=LD_LIBRARY_PATH=/app/ffmpeg/lib
   - --env=CHROME_VERSION_EXTRA=stable
   - --env=GNOME_DISABLE_CRASH_DIALOG=SET_BY_GOOGLE_CHROME
